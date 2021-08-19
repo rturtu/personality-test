@@ -8,6 +8,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        // value in range [0, 100](%)
+        extrovertScore: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
     });
 
     Answer.associate = (models) => {

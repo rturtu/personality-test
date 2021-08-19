@@ -1,22 +1,19 @@
 var Model = require("../models");
-var questions = (module.exports = {});
+var answers = (module.exports = {});
 
-questions.getAll = (req, res, next) => {
-    Model.questions
-        .findAll({
-            include: [{ model: Model.answers }],
-        })
-        .then((questions) => {
-            res.status(200).send(questions);
-        });
+answers.getAll = (req, res, next) => {
+    Model.answers.findAll({}).then((questions) => {
+        res.status(200).send(questions);
+    });
 };
 
-questions.add = (req, res, next) => {
-    console.log(req.body);
-    Model.questions
+answers.add = (req, res, next) => {
+    Model.answers
         .create({
             text: req.body.text,
             order: req.body.order,
+            questionId: req.body.questionId,
+            extrovertScore: req.body.extrovertScore,
         })
         .then((result) => {
             res.send(result);
@@ -26,12 +23,14 @@ questions.add = (req, res, next) => {
         });
 };
 
-questions.update = (req, res, next) => {
-    Model.questions
+answers.update = (req, res, next) => {
+    Model.answers
         .update(
             {
                 text: req.body.text,
                 order: req.body.order,
+                questionId: req.body.questionId,
+                extrovertScore: req.body.extrovertScore,
             },
             {
                 returning: true,
@@ -49,8 +48,8 @@ questions.update = (req, res, next) => {
         });
 };
 
-questions.delete = (req, res, next) => {
-    Model.questions
+answers.delete = (req, res, next) => {
+    Model.answers
         .destroy({
             where: {
                 id: req.params.id,
