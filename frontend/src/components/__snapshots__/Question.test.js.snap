@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`First question is displayed correctly 1`] = `
+<div
+  className="sc-iCoGMd sRtdd"
+>
+  <p
+    className="sc-fujyAs jbcxtn"
+  >
+    Question 
+    1
+     / 4
+  </p>
+  <p
+    className="sc-fujyAs jbcxtn"
+  >
+    This is the first question
+    :
+  </p>
+  <div
+    className="sc-gKAaRy sc-pNWdM fKPiYy fpXnMF"
+  >
+    <div>
+      <label
+        onClick={[Function]}
+      >
+        <input
+          checked={false}
+          type="radio"
+        />
+         
+        <span>
+          The only answer
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    className="sc-jrsJWt qbsTD"
+  >
+    <span />
+    <button
+      className="ui button sc-bdnxRM sc-gtsrHT jtoVTB hxeQqD"
+      onClick={[Function]}
+    >
+      Next
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Last question is displayed correctly 1`] = `
+<div
+  className="sc-iCoGMd sRtdd"
+>
+  <p
+    className="sc-fujyAs jbcxtn"
+  >
+    Question 
+    4
+     / 4
+  </p>
+  <p
+    className="sc-fujyAs jbcxtn"
+  >
+    This is the last question
+    :
+  </p>
+  <div
+    className="sc-gKAaRy sc-pNWdM fKPiYy fpXnMF"
+  >
+    <div>
+      <label
+        onClick={[Function]}
+      >
+        <input
+          checked={false}
+          type="radio"
+        />
+         
+        <span>
+          The only answer
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    className="sc-jrsJWt qbsTD"
+  >
+    <button
+      className="ui button sc-bdnxRM sc-dlnjwi jtoVTB gTPvDX"
+      onClick={[Function]}
+    >
+      Go Back
+    </button>
+    <button
+      className="ui button sc-bdnxRM sc-gtsrHT jtoVTB hxeQqD"
+      onClick={[Function]}
+    >
+      See results
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Middle question is displayed correctly 1`] = `
+<div
+  className="sc-iCoGMd sRtdd"
+>
+  <p
+    className="sc-fujyAs jbcxtn"
+  >
+    Question 
+    3
+     / 4
+  </p>
+  <p
+    className="sc-fujyAs jbcxtn"
+  >
+    This is some middle question
+    :
+  </p>
+  <div
+    className="sc-gKAaRy sc-pNWdM fKPiYy fpXnMF"
+  >
+    <div>
+      <label
+        onClick={[Function]}
+      >
+        <input
+          checked={false}
+          type="radio"
+        />
+         
+        <span>
+          The only answer
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    className="sc-jrsJWt qbsTD"
+  >
+    <button
+      className="ui button sc-bdnxRM sc-dlnjwi jtoVTB gTPvDX"
+      onClick={[Function]}
+    >
+      Go Back
+    </button>
+    <button
+      className="ui button sc-bdnxRM sc-gtsrHT jtoVTB hxeQqD"
+      onClick={[Function]}
+    >
+      Next
+    </button>
+  </div>
+</div>
+`;

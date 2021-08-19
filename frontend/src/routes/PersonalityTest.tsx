@@ -86,10 +86,8 @@ const PersonalityTest: React.FC<Props> = (props) => {
                         question={questions[currentQuestionIndex]}
                         goBack={goToPreviousQuestion}
                         setAnswer={setAnswer}
-                        isFirstQuestion={currentQuestionIndex === 0}
-                        isLastQuestion={
-                            currentQuestionIndex === questions.length - 1
-                        }
+                        questionIndex={currentQuestionIndex}
+                        questionCount={questions.length}
                     />
                 </QuestionWrapper>
             )}

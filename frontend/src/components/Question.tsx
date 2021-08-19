@@ -4,19 +4,35 @@ import {
     SecondaryButton,
     VerticalRow,
 } from "./StyledComponents";
+import { Progress } from "semantic-ui-react";
 import styled from "styled-components";
 import { QuestionType, AnswerType } from "../types";
 
 const QuestionWrapper = styled.div`
     &&& {
-        width: 20em;
-        border: 1px solid ${(props) => props.theme.colors.darkBlue};
+        width: 50vw;
+        border: 1px solid ${(props) => props.theme.colors.lightBlue};
+        padding: 2em;
+        @media (max-width: ${(props) => props.theme.screenWidth.mobile}) {
+            width: 90vw;
+        }
+        color: ${(props) => props.theme.colors.darkGrey};
     }
 `;
-const QuestionText = styled.span``;
+const QuestionText = styled.p`
+    &&& {
+        font-size: 1.5em;
+        align-text: left;
+    }
+`;
 const AnswersWrapper = styled(VerticalRow)`
     &&& {
         text-align: left;
+        font-size: 1.5em;
+        & > * {
+            margin-bottom: 0.7em;
+        }
+        margin-bottom: 1em;
     }
 `;
 const ButtonWrapper = styled.div`
@@ -25,21 +41,25 @@ const ButtonWrapper = styled.div`
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
+        font-size: 1.3em;
     }
 `;
 
 interface Props {
     question: QuestionType;
     setAnswer: (questionId: number, answerId: number) => void;
-    isFirstQuestion?: boolean;
-    isLastQuestion?: boolean;
     goBack: () => void;
+    questionIndex: number;
+    questionCount: number;
 }
 
 const QuestionComponent: React.FC<Props> = (props) => {
     const [selectedAnswerId, setSelectedAnswerId] = useState<number>(
         props.question.selectedAnswerId || -1
     );
+
+    const isFirstQuestion = props.questionIndex === 0;
+    const isLastQuestion = props.questionIndex === props.questionCount - 1;
 
     const sendAnswer = (): void => {
         if (selectedAnswerId === -1) return;
@@ -48,10 +68,18 @@ const QuestionComponent: React.FC<Props> = (props) => {
 
     return (
         <QuestionWrapper>
-            <QuestionWrapper>{props.question.text}</QuestionWrapper>
+            {props.questionIndex >= 0 ? (
+                <QuestionText>
+                    Question {props.questionIndex + 1}
+                    {props.questionCount && ` / ${props.questionCount}`}
+                </QuestionText>
+            ) : (
+                <></>
+            )}
+            <QuestionText>{props.question.text}:</QuestionText>
             <AnswersWrapper>
                 {props.question.answers.map((answer: AnswerType) => (
-                    <div>
+                    <div key={answer.id}>
                         <label onClick={() => setSelectedAnswerId(answer.id)}>
                             <input
                                 type="radio"
@@ -63,7 +91,7 @@ const QuestionComponent: React.FC<Props> = (props) => {
                 ))}
             </AnswersWrapper>
             <ButtonWrapper>
-                {props.isFirstQuestion ? (
+                {isFirstQuestion ? (
                     <span></span>
                 ) : (
                     <SecondaryButton onClick={props.goBack}>
@@ -71,7 +99,7 @@ const QuestionComponent: React.FC<Props> = (props) => {
                     </SecondaryButton>
                 )}
                 <PrimaryButton onClick={sendAnswer}>
-                    {props.isLastQuestion ? "See results" : "Next"}
+                    {isLastQuestion ? "See results" : "Next"}
                 </PrimaryButton>
             </ButtonWrapper>
         </QuestionWrapper>
