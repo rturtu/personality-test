@@ -1,26 +1,26 @@
-var cors = require('cors');
-var cookieParser = require('cookie-parser');
-var express = require('express');
+var cors = require("cors");
+var cookieParser = require("cookie-parser");
+var express = require("express");
 var app = express();
-var logger = require('morgan');
+var logger = require("morgan");
 
-app.set('port', 9000);
 app.use(cors());
-app.use(logger('dev'));
+app.set("port", 9000);
+app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(require('./routes'));
+app.use(require("./routes"));
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     var err = new Error("Page not found!");
     err.status = 404;
     next(err);
 });
 
 // ERROR HANDLER
-app.use(function errorHandler (err, req, res, next) {
+app.use(function errorHandler(err, req, res, next) {
     console.log(err);
 
     // next(parameter) is err from here

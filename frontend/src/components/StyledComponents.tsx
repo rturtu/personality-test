@@ -34,6 +34,14 @@ export const OrangeText = styled.span`
     }
 `;
 
+export const OrangeLink = styled(OrangeText)`
+    &&& {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+`;
+
 export const Row = styled.div`
     &&& {
         display: flex;

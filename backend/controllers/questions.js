@@ -65,3 +65,22 @@ questions.delete = (req, res, next) => {
         })
         .catch((err) => next(err));
 };
+
+questions.results = (req, res, next) => {
+    console.log(req.body.map((answer) => answer.answerId));
+    Model.answers
+        .findAll({
+            where: {
+                id: req.body.map((answer) => answer.answerId),
+            },
+        })
+        .then((result) => {
+            const extrovertPercentage = Math.round(
+                result.reduce((acc, answer) => acc + answer.extrovertScore, 0) /
+                    result.length
+            );
+            console.log(extrovertPercentage);
+            res.send({ extrovertPercentage });
+        })
+        .catch((err) => next(err));
+};
