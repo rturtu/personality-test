@@ -7,14 +7,6 @@ require("./tests/beforeHooks");
 // General routing test
 require("./tests/routes");
 
-// Blog tests
-require("./tests/blogPost");
-require("./tests/blogComment");
-
-// Contest tests
-require("./tests/task");
-require("./tests/contest");
-require("./tests/contestTask");
-
-// Eval tests
-require("./tests/submit");
+// Questions tests
+require("./tests/questions");
+require("./tests/answers");
