@@ -5,6 +5,10 @@ questions.getAll = (req, res, next) => {
     Model.questions
         .findAll({
             include: [{ model: Model.answers }],
+            order: [
+                ["order", "ASC"],
+                [Model.answers, "order", "ASC"],
+            ],
         })
         .then((questions) => {
             res.status(200).send(questions);
