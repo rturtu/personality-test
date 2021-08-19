@@ -22,6 +22,10 @@ app.use(function (req, res, next) {
 // ERROR HANDLER
 app.use(function errorHandler(err, req, res, next) {
     console.log(err);
+    if (typeof err === "string") {
+        res.status(400).send(err);
+        return;
+    }
 
     // next(parameter) is err from here
 
