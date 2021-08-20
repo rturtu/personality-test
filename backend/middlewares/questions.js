@@ -6,6 +6,7 @@ questions.add = (req, res, next) => {
         return next("Invalid question text");
     if (typeof req.body.order !== "number")
         return next("Invalid question order");
+    next();
 };
 
 questions.update = (req, res, next) => {
